@@ -37,10 +37,10 @@ public class ContinueRunSequence : MonoBehaviour
 
         continueScreen.SetActive(false);
 
+        this.gameObject.GetComponent<GenerateLevel>().enabled = true;
+
         PlayerMovement.isPaused = false;
 
-        this.gameObject.GetComponent<GenerateLevel>().enabled = true;
-        this.gameObject.GetComponent<Destroyer>().enabled = true;
     }
     
     

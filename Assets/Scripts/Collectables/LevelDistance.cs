@@ -49,8 +49,12 @@ public class LevelDistance : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(4.5f);
-            disRunTemp++;
+            if (!PlayerMovement.isPaused)
+            {
+                yield return new WaitForSeconds(4.5f);
+                disRunTemp++;
+            }
+            else { yield return null; }
         }
     }
 }

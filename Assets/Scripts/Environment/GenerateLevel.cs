@@ -14,7 +14,7 @@ public class GenerateLevel : MonoBehaviour
 
     private float generatorSpeed = 0;
 
-    void LateUpdate()
+    private void LateUpdate()
     {
         if (!creatingSection)
         {

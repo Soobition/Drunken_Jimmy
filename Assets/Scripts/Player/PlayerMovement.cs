@@ -137,15 +137,11 @@ public class PlayerMovement : MonoBehaviour
                 levelControl.GetComponent<EndRunSequence>().enabled = true;
             }
 
-            else if (ContinueRunSequence.coins < CollectableControl.coinCount && !ContinueRunSequence.invisible)
+            else if (ContinueRunSequence.coins <= CollectableControl.coinCount && !ContinueRunSequence.invisible)
             {
                 isPaused = true;
 
-                if (isPaused)
-                {
-                    levelControl.GetComponent <GenerateLevel>().enabled = false;
-                    levelControl.GetComponent <Destroyer>().enabled = false;
-                }
+                levelControl.GetComponent<GenerateLevel>().enabled = false;
 
                 coinCostDisplay.GetComponent<Text>().text = "" + ContinueRunSequence.coins;
 
@@ -166,8 +162,12 @@ public class PlayerMovement : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1);
-            moveSpeed += .35f;
+            if (!isPaused)
+            {
+                yield return new WaitForSeconds(1);
+                moveSpeed += .35f;
+            }
+            else { yield return null; }
         }
     }
 
