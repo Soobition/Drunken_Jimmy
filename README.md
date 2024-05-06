@@ -2,21 +2,21 @@
 
 
 
-About:
+## About:
 
 Drunken Jimmy is a mobile 3D Endless Runner game and as the name of the game suggests, Jimmy is a drunken mouse who has the illusion that he's lost in an infinite desert and trying to run away.
 
 
 
-Features:
+## Features:
 
 • This game uses several numbers of filters such as Vignette, Chromatic Aberration, Film Grain, and so on to players feel the drunk atmosphere the way Jimmy feels.
 
 • The game menu has four sessions that include:
-1. PLAY GAME: Play the game.
-2. ACHIEVEMENTS: Shows your high score.
-3. ABOUT: Shows developer information and the ways you can contact the developer.
-4. QUIT.
+1. **PLAY GAME:** Play the game.
+2. **ACHIEVEMENTS:** Shows your high score.
+3. **ABOUT:** Shows developer information and the ways you can contact the developer.
+4. **QUIT**.
 
 • The level design of this game is based on the procedural generation method and uses a shader graph that curves the world of the game dynamically.
 
@@ -33,13 +33,15 @@ At the up-left corner, you have coins and distance display and at the right side
 
 
 
-Soundtrack: 
+## Soundtrack: 
 
-Music: A Little Bit of Fun
-Producer: Jonny Boyle
+**Music:** A Little Bit of Fun
 
-Source: uppbeat.io (no copyright claims)
+**Producer:** Jonny Boyle
+
+**Source:** [uppbeat](https://uppbeat.io/) (_no copyright claims_)
 
 
 
-Fn: As a solo developer this game takes around 5 months to make; Hope U enjoy it.
+## Footnote:
+As a solo developer this game takes around 5 months to make; Hope U enjoy it.
