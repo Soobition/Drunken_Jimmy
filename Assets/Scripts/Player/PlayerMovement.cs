@@ -11,14 +11,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject continueScreen;
     [SerializeField] private GameObject levelControl;
     [SerializeField] private GameObject coinCostDisplay;
+    [SerializeField] private GameObject pauseButton;
 
-    [SerializeField] private float moveSpeed = 14f;
     [SerializeField] private float speed = 2.0f;
 
     private int temp = 0;
 
+    public static float moveSpeed;
+
     public static bool canMove = false;
     public static bool isPaused = false;
+    public static bool startAgain = false;
 
     private bool isJumping;
     private bool comingDown;
@@ -28,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         StartCoroutine(IncreaseSpeed());
+
+        moveSpeed = 7;
     }
 
     private void Update()
@@ -113,46 +118,59 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!comingDown)
             {
-                transform.Translate(Vector3.up * Time.deltaTime * 6.5f, Space.World);
+                transform.Translate(Vector3.up * Time.deltaTime * 5.65f, Space.World);
             }
             if (comingDown && transform.position.y > 1.5f)
             {
-                transform.Translate(Vector3.up * Time.deltaTime * -6.5f, Space.World);
+                transform.Translate(Vector3.up * Time.deltaTime * -5.65f, Space.World);
             }
         }
     }
 
+
     private void OnTriggerEnter(Collider collision)
     {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            Destroyer.isWall = true;
+
+            GenerateLevel.levels--;
+        }
+
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            if (!ContinueRunSequence.invisible)
+            if (!ContinueRunSequence.isInvisible)
             {
                 ContinueRunSequence.coins += temp;
                 temp = ContinueRunSequence.coins;
             }
 
-            if (ContinueRunSequence.coins > CollectableControl.coinCount && !ContinueRunSequence.invisible)
+            if (ContinueRunSequence.coins > CollectableControl.coinCount && !ContinueRunSequence.isInvisible)
             {
                 levelControl.GetComponent<EndRunSequence>().enabled = true;
-            }
 
-            else if (ContinueRunSequence.coins <= CollectableControl.coinCount && !ContinueRunSequence.invisible)
-            {
+                pauseButton.SetActive(false);
+
                 isPaused = true;
 
-                levelControl.GetComponent<GenerateLevel>().enabled = false;
+            }
+
+            else if (ContinueRunSequence.coins <= CollectableControl.coinCount && !ContinueRunSequence.isInvisible)
+            {
+                isPaused = true;
 
                 coinCostDisplay.GetComponent<Text>().text = "" + ContinueRunSequence.coins;
 
                 StartCoroutine(ContinueSequence());
+
+                pauseButton.SetActive(false);
             }
         }
     }
 
     IEnumerator ContinueSequence()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
 
         continueScreen.SetActive(true);
     }
@@ -162,10 +180,10 @@ public class PlayerMovement : MonoBehaviour
     {
         while (true)
         {
-            if (!isPaused)
+            if (!isPaused && !startAgain)
             {
                 yield return new WaitForSeconds(1);
-                moveSpeed += .35f;
+                moveSpeed += .29f;
             }
             else { yield return null; }
         }
@@ -174,11 +192,11 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator JumpSequence()
     {
-        yield return new WaitForSeconds(.28f);
+        yield return new WaitForSeconds(.25f);
 
         comingDown = true;
 
-        yield return new WaitForSeconds(.28f);
+        yield return new WaitForSeconds(.25f);
 
         isJumping = false;
         comingDown = false;
@@ -187,9 +205,16 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator FallSequemce()
     {
-        yield return new WaitForSeconds(.15f);
+        yield return new WaitForSeconds(.5f);
 
-        playerObject.GetComponent<Animator>().Play("Drunk Run Forward");
+        if (levelControl.GetComponent<LevelDistance>().enabled == false)
+        {
+            playerObject.GetComponent<Animator>().Play("Stumble Backwards");
+        }
+        else
+        {
+            playerObject.GetComponent<Animator>().Play("Drunk Run Forward");
+        }
     }
 
 

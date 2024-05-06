@@ -7,20 +7,14 @@ public class LevelStarter : MonoBehaviour
 {
     [SerializeField] private GameObject[] countDown;
 
+    [SerializeField] private GameObject pauseButton;
+
     [SerializeField] private AudioSource readyFX;
     [SerializeField] private AudioSource goFX;
 
 
-    private void Awake()
-    {
-        Application.targetFrameRate = 60;
-    }
-
-
     private void Start()
     {
-        Cursor.visible = false;
-
         StartCoroutine(countSquence());
     }
 
@@ -40,6 +34,8 @@ public class LevelStarter : MonoBehaviour
         }
 
         PlayerMovement.canMove = true;
+
+        pauseButton.SetActive(true);
     }
 
 }

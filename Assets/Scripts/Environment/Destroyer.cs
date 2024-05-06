@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Destroyer : MonoBehaviour
 {
     private string parentName;
+
+    public static bool isWall = false;
 
     private void Start()
     {
@@ -16,17 +19,15 @@ public class Destroyer : MonoBehaviour
 
     IEnumerator DestroyClone()
     {
-        for (int i = 1; i <= 120; i++)
-        {
-            if (PlayerMovement.isPaused)
-            {
-                yield return new WaitWhile(() => PlayerMovement.isPaused);
-            }
-            else { yield return new WaitForSeconds(1); }
-        }
+        yield return new WaitWhile(() => !isWall);
+
 
         if (parentName == "Section (1)(Clone)" || parentName == "Section (2)(Clone)" || parentName == "Section (3)(Clone)" || parentName == "Section (4)(Clone)" || parentName == "Section (5)(Clone)")
         {
+            isWall = false;
+
+            yield return new WaitForSeconds(.5f);
+
             Destroy(gameObject);
         }
     }

@@ -8,6 +8,13 @@ public class CameraController : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y, player.position.z - 10f);
+        if (PlayerMovement.isPaused)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + player.position.z + 23f);
+        }
+        else
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, player.position.z - 10f);
+        }
     }
 }

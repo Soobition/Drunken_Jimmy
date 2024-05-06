@@ -7,43 +7,23 @@ public class GenerateLevel : MonoBehaviour
     [SerializeField] private GameObject[] section;
     [SerializeField] private int zPos = 70;
 
-    private bool creatingSection = false;
-    private bool isIncreasing = true;
+    public static int levels;
 
-    private int secNum;
 
-    private float generatorSpeed = 0;
+    private void Start()
+    {
+        levels = 0;
+    }
+
 
     private void LateUpdate()
     {
-        if (!creatingSection)
+        if (levels < 10)
         {
-            creatingSection = true;
-            StartCoroutine(GenerateSection());
+            int secNum = Random.Range(0, 5);
+            Instantiate(section[secNum], new Vector3(0, 0, zPos), Quaternion.identity);
+            zPos += 70;
+            levels++;
         }
-
-        if (isIncreasing)
-        {
-            StartCoroutine(IncreaseSpeed());
-        }
-    }
-
-    IEnumerator GenerateSection()
-    {
-        secNum = Random.Range(0, 5);
-        Instantiate(section[secNum], new Vector3(0, 0, zPos), Quaternion.identity);
-        zPos += 70;
-        yield return new WaitForSeconds(generatorSpeed);
-        creatingSection = false;
-    }
-
-    IEnumerator IncreaseSpeed()
-    {
-        if (generatorSpeed <= 1f)
-        {
-            yield return new WaitForSeconds(.1f);
-            generatorSpeed += .1f;
-        }
-        else { isIncreasing = false; }
     }
 }

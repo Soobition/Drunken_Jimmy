@@ -20,9 +20,8 @@ public class MainMenuFunction : MonoBehaviour
     {
         Cursor.visible = true;
 
-        if (!PlayerPrefs.HasKey("Coin") && PlayerPrefs.HasKey("Dis"))
+        if (!PlayerPrefs.HasKey("Dis"))
         {
-            PlayerPrefs.SetInt("Coin", 0);
             PlayerPrefs.SetInt("Dis", 0);
 
             Load();

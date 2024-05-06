@@ -13,7 +13,7 @@ public class ObstacleCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (ContinueRunSequence.invisible)
+        if (ContinueRunSequence.isInvisible)
         {
             this.gameObject.GetComponent<BoxCollider>().isTrigger = false;
         }

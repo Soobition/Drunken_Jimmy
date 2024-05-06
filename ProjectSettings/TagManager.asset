@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BGM
   - Obstacle
+  - Wall
   layers:
   - Default
   - TransparentFX
