@@ -43,5 +43,11 @@ At the up-left corner, you have coins and distance display and at the right side
 
 
 
+## Install instructions:
+
+Use the [Itch.io](https://soobition.itch.io/drunken-jimmy) to download the game.
+
+
+
 ## Footnote:
 As a solo developer this game takes around 5 months to make; Hope U enjoy it.
