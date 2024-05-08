@@ -2,7 +2,7 @@
 
 Drunken Jimmy is a mobile 3D Endless Runner game and as the name of the game suggests, Jimmy is a drunken mouse who has the illusion that he's lost in an infinite desert and trying to run away.
 
-## Features
+## Special features
 
 - This game uses several filters, such as Vignette, Chromatic Aberration, Film Grain, and so on to help players experience the drunken atmosphere as Jimmy does.
 
