@@ -1,53 +1,35 @@
-# Introducing the latest version of Drunken Jimmy.
-
-
-
-## About:
+# Drunken Jimmy
 
 Drunken Jimmy is a mobile 3D Endless Runner game and as the name of the game suggests, Jimmy is a drunken mouse who has the illusion that he's lost in an infinite desert and trying to run away.
 
+## Features
+
+- This game uses several filters, such as Vignette, Chromatic Aberration, Film Grain, and so on to help players experience the drunken atmosphere as Jimmy does.
+
+- The level design is based on the procedural generation method and uses a shader graph that dynamically curves the game's world.
+
+## Gameplay
+
+- Mechanics are simple: Swipe left and right to move horizontally, and swipe up or down to jump or fall.
+
+- Collect coins; no kidding, they are your saviors!
+
+- Watch out for obstacles in the path; they can cause trouble, and if you don’t have sufficient coins, they might even be fatal!
+
+- The top-left corner displays the number of taken strides and collected coins, and the up-right side has a pause button.
 
 
-## Features:
+## Soundtrack
 
-• This game uses several numbers of filters such as Vignette, Chromatic Aberration, Film Grain, and so on to players feel the drunk atmosphere the way Jimmy feels.
+Music: A Little Bit of Fun
 
-• The game menu has four sessions that include:
-1. **PLAY GAME:** Play the game.
-2. **ACHIEVEMENTS:** Shows your high score.
-3. **ABOUT:** Shows developer information and the ways you can contact the developer.
-4. **QUIT**.
+Producer: Jonny Boyle
 
-• The level design of this game is based on the procedural generation method and uses a shader graph that curves the world of the game dynamically.
-
-• Mechanics of this game is simple as FUCK.
-U can swipe your finger in four directions; Left, Right, Up, and Down.
-Left and right is for going to left and right; Up and down is for jumping and falling.
-
-• Collect coins as much as you can!
-If you want more chances to continue you must collect coins as much as you can, but beware of those bastard obstacles (They love to bite your nuts!); If you hit them and do not have enough coins, The game leaves you with only two options:
-RETRY or GO HOME!
-
-• Gameplay HUD:
-At the up-left corner, you have coins and distance display and at the right side, you have the pause button feature.
+Source: [uppbeat](https://uppbeat.io/) (_no copyright claims_)
 
 
+## Install instructions
 
-## Soundtrack: 
+Download the game from the [Itch](https://soobition.itch.io/drunken-jimmy) marketplace.
 
-**Music:** A Little Bit of Fun
-
-**Producer:** Jonny Boyle
-
-**Source:** [uppbeat](https://uppbeat.io/) (_no copyright claims_)
-
-
-
-## Install instructions:
-
-Use the [Itch.io](https://soobition.itch.io/drunken-jimmy) to download the game.
-
-
-
-## Footnote:
-As a solo developer this game takes around 5 months to make; Hope U enjoy it.
+> It took me around five months to develop this game as a solo developer. It was a journey of learning and enjoyment for me, and I hope you'll enjoy it as well.
